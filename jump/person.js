@@ -1,6 +1,6 @@
 class Person {
   constructor() {
-    this.r = 150;
+    this.r = 100;
     this.x = 400;
     this.y = height - this.r;
     this.vy = 0; //snabbhet y-axel
@@ -9,9 +9,17 @@ class Person {
 
   jump() {
     if (this.y == height - this.r) {
-      this.vy = -30;
+      this.vy = -32;
     }
-    //hgastigehetn på hoppet
+  }
+
+  moveRight() {
+    //create function to move to the right
+    console.log("right");
+  }
+  moveLeft() {
+    //create function to move to the left
+    console.log("left");
   }
 
   move() {
@@ -21,14 +29,13 @@ class Person {
   }
 
   show() {
-    //creates unicorn
     image(uImg, this.x, this.y, this.r, this.r);
   }
 
   intersects(other) {
     const distance = dist(this.x, this.y, other.x, other.y);
 
-    if (distance < this.r + other.r) {
+    if (distance + 50 < this.r + other.r) {
       return true;
     } else {
       return false;
