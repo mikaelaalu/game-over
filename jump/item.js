@@ -1,3 +1,6 @@
+let points = 0;
+let displayPoints = document.querySelector(".points");
+
 class Item {
   constructor(image, radius, speed, displayHeight) {
     this.r = radius;
@@ -10,6 +13,7 @@ class Item {
   move() {
     this.x -= this.speed;
   }
+
   show() {
     image(this.image, this.x, this.y, this.r, this.r);
   }
@@ -22,7 +26,13 @@ class Item {
 
       if (person.intersects(single)) {
         array.splice(i, 1);
+        console.log("points");
+        this.points();
       }
     }
+  }
+
+  points() {
+    displayPoints.innerHTML = points++;
   }
 }
