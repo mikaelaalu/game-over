@@ -1,13 +1,17 @@
 let person;
 let uImg;
-let tImg;
+let paperImg;
 let bImg;
+let soapImg;
+
 let papers = [];
+let soaps = [];
 
 function preload() {
   uImg = loadImage("/images/avatar.png");
-  tImg = loadImage("/images/paper.png");
+  paperImg = loadImage("/images/paper.png");
   bImg = loadImage("/images/background.jpg");
+  soapImg = loadImage("/images/soap.png");
 }
 
 function setup() {
@@ -19,24 +23,28 @@ function keyPressed() {
   if (key == " ") {
     person.jump();
   }
+  if (key == "ArrowLeft") {
+    person.moveLeft();
+  }
+  if (key === "ArrowRight") {
+    person.moveRight();
+  }
 }
 
 function draw() {
-  if (random(1) < 0.009) {
-    papers.push(new Paper());
-  }
-
   background(bImg);
   person.show();
   person.move();
 
-  for (let i = 0; i < papers.length; i++) {
-    const paper = papers[i];
-    paper.move();
-    paper.show();
-
-    if (person.intersects(paper)) {
-      papers.splice(i, 1);
-    }
+  if (random(1) < 0.006) {
+    papers.push(new Item(paperImg, 50, 3, Math.floor(Math.random() * 600) + 1));
   }
+
+  if (random(1) < 0.006) {
+    soaps.push(new Item(soapImg, 50, 3, Math.floor(Math.random() * 600) + 1));
+  }
+
+  const item = new Item();
+  item.displayRandom(soaps);
+  item.displayRandom(papers);
 }
