@@ -23,12 +23,11 @@ function keyPressed() {
   if (key == " ") {
     person.jump();
   }
-  if (key == "ArrowLeft") {
-    person.moveLeft();
-  }
-  if (key === "ArrowRight") {
-    person.moveRight();
-  }
+  // else if (key == "ArrowLeft") {
+  //   person.moveLeft();
+  // } else if (key == "ArrowRight") {
+  //   person.moveRight();
+  // }
 }
 
 function draw() {
@@ -42,6 +41,12 @@ function draw() {
 
   if (random(1) < 0.006) {
     soaps.push(new Item(soapImg, 50, 3, Math.floor(Math.random() * 600) + 1));
+  }
+
+  if (keyIsDown(LEFT_ARROW)) {
+    person.moveLeft();
+  } else if (keyIsDown(RIGHT_ARROW)) {
+    person.moveRight();
   }
 
   const item = new Item();

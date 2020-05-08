@@ -1,7 +1,8 @@
 class Person {
   constructor() {
     this.r = 100;
-    this.x = 400;
+    this.x = 50;
+    this.vx = 10;
     this.y = height - this.r;
     this.vy = 0; //snabbhet y-axel
     this.gravity = 1;
@@ -15,11 +16,11 @@ class Person {
 
   moveRight() {
     //create function to move to the right
-    console.log("right");
+    this.x += this.vx;
   }
   moveLeft() {
     //create function to move to the left
-    console.log("left");
+    this.x -= this.vx;
   }
 
   move() {
