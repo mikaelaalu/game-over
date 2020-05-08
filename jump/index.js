@@ -23,11 +23,6 @@ function keyPressed() {
   if (key == " ") {
     person.jump();
   }
-  // else if (key == "ArrowLeft") {
-  //   person.moveLeft();
-  // } else if (key == "ArrowRight") {
-  //   person.moveRight();
-  // }
 }
 
 function draw() {
