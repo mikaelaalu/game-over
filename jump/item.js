@@ -8,6 +8,8 @@ class Item {
     this.y = displayHeight || height - this.r;
     this.image = image;
     this.speed = speed;
+
+    displayPoints.innerHTML = points;
   }
 
   move() {
