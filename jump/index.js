@@ -1,16 +1,16 @@
 let person;
-let uImg;
+let avatarImg;
 let paperImg;
-let bImg;
+let backgroundImg;
 let soapImg;
 
 let papers = [];
 let soaps = [];
 
 function preload() {
-  uImg = loadImage("/images/avatar.png");
+  avatarImg = loadImage("/images/avatar.png");
   paperImg = loadImage("/images/paper.png");
-  bImg = loadImage("/images/background.jpg");
+  backgroundImg = loadImage("/images/background.jpg");
   soapImg = loadImage("/images/soap.png");
 }
 
@@ -26,7 +26,7 @@ function keyPressed() {
 }
 
 function draw() {
-  background(bImg);
+  background(backgroundImg);
   person.show();
   person.move();
 

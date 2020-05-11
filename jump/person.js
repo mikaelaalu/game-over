@@ -30,7 +30,7 @@ class Person {
   }
 
   show() {
-    image(uImg, this.x, this.y, this.r, this.r);
+    image(avatarImg, this.x, this.y, this.r, this.r);
   }
 
   intersects(other) {
