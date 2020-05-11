@@ -1,3 +1,6 @@
+let life = 3;
+let displayLife = document.querySelector(".life");
+
 class Person {
   constructor() {
     this.r = 100;
@@ -6,6 +9,8 @@ class Person {
     this.y = height - this.r;
     this.vy = 0; //snabbhet y-axel
     this.gravity = 1;
+
+    displayLife.innerHTML = life;
   }
 
   jump() {
@@ -40,6 +45,16 @@ class Person {
       return true;
     } else {
       return false;
+    }
+  }
+
+  life() {
+    life = life - 1;
+    displayLife.innerHTML = life;
+    console.log(life);
+
+    if (life === 0) {
+      console.log("die");
     }
   }
 }

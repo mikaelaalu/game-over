@@ -1,12 +1,9 @@
 class Virus {
   constructor() {
-    this.r = radius;
+    this.r = 40;
     this.x = width;
-    this.y = displayHeight || height - this.r;
-    this.image = image;
-    this.speed = speed;
-
-    displayPoints.innerHTML = points;
+    this.y = Math.floor(Math.random() * 600) + 1 || height - this.r;
+    this.speed = 2;
   }
 
   move() {
@@ -14,6 +11,19 @@ class Virus {
   }
 
   show() {
-    image(this.image, this.x, this.y, this.r, this.r);
+    image(virusImg, this.x, this.y, this.r, this.r);
+  }
+
+  displayRandom(array) {
+    for (let i = 0; i < array.length; i++) {
+      const single = array[i];
+      single.move();
+      single.show();
+
+      if (person.intersects(single)) {
+        array.splice(i, 1);
+        person.life();
+      }
+    }
   }
 }
