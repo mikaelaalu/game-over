@@ -1,3 +1,10 @@
+let life = 3;
+let displayLife = document.querySelector(".life");
+let playAgain;
+let playBtn;
+
+const reset = document.querySelector(".reset");
+
 class Person {
   constructor() {
     this.r = 100;
@@ -6,6 +13,8 @@ class Person {
     this.y = height - this.r;
     this.vy = 0; //snabbhet y-axel
     this.gravity = 1;
+
+    displayLife.innerHTML = life;
   }
 
   jump() {
@@ -43,5 +52,40 @@ class Person {
     } else {
       return false;
     }
+  }
+
+  looseLife() {
+    life = life - 1;
+    displayLife.innerHTML = life;
+    console.log(life);
+
+    if (life === 0) {
+      this.die(points);
+    }
+  }
+
+  die(points) {
+    playAgain = `
+    <div class="play-again-container">
+    <div class="play-again">
+    <p>You got ${points} points</p>
+    <button class="play-again-btn">Try again</button>
+    </div>
+    <div>`;
+
+    reset.innerHTML = playAgain;
+    playBtn = document.querySelector(".play-again-btn");
+
+    playBtn.addEventListener("click", this.replay);
+  }
+
+  replay() {
+    const playContainer = document.querySelector(".play-again-container");
+    playContainer.style.display = "none";
+    life = 3;
+    points = 0;
+
+    displayLife.innerHTML = life;
+    displayPoints.innerHTML = points;
   }
 }

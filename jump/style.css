@@ -1,0 +1,51 @@
+.play-again-container {
+  display: block;
+  position: absolute;
+  background-color: coral;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-again {
+  color: red;
+  width: 100px;
+  height: 40px;
+  background-color: coral;
+}
+
+.play-again-btn {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  border: none;
+  box-shadow: 6px 4px 11px -4px rgba(0, 0, 0, 0.75);
+  background-color: #d91515;
+  color: white;
+  border-radius: 3px;
+}
+
+.play-again-btn:hover {
+  background-color: white;
+  color: #d91515;
+}
+
+.info-box {
+  position: absolute;
+  background-color: rgb(110, 150, 223);
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.points,
+.life {
+  display: flex;
+  color: white;
+  font-size: 14px;
+  justify-content: space-evenly;
+}
