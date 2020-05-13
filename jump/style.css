@@ -34,7 +34,7 @@
 
 .info-box {
   position: absolute;
-  background-color: cornflowerblue;
+  background-color: rgb(110, 150, 223);
   width: 200px;
   height: 100px;
   display: flex;

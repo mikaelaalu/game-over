@@ -57,7 +57,7 @@ class Person {
     displayLife.innerHTML = life;
     console.log(life);
 
-    if (life === 2) {
+    if (life === 0) {
       this.die(points);
     }
   }
