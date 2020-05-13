@@ -1,5 +1,9 @@
 let life = 3;
 let displayLife = document.querySelector(".life");
+let playAgain;
+let playBtn;
+
+const reset = document.querySelector(".reset");
 
 class Person {
   constructor() {
@@ -48,13 +52,36 @@ class Person {
     }
   }
 
-  life() {
+  looseLife() {
     life = life - 1;
     displayLife.innerHTML = life;
     console.log(life);
 
-    if (life === 0) {
-      console.log("die");
+    if (life === 2) {
+      this.die();
     }
+  }
+
+  die() {
+    playAgain = `
+    <div class="play-again-container">
+    <div class="play-again">
+    <p>Dieee </p>
+    <button class="play-again-btn"> Play again </button>
+    </div>
+    <div>`;
+
+    reset.innerHTML = playAgain;
+    playBtn = document.querySelector(".play-again-btn");
+
+    playBtn.addEventListener("click", this.replay);
+  }
+
+  replay() {
+    const playContainer = document.querySelector(".play-again-container");
+    playContainer.style.display = "none";
+    life = 3;
+
+    displayLife.innerHTML = life;
   }
 }

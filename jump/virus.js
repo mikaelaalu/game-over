@@ -22,7 +22,7 @@ class Virus {
 
       if (person.intersects(single)) {
         array.splice(i, 1);
-        person.life();
+        person.looseLife();
       }
     }
   }
