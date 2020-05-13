@@ -11,6 +11,11 @@ let runLeftImages = [];
 
 let spritePaths = [];
 
+let virusImg;
+let virusArray = [];
+let papersArray = [];
+let soapsArray = [];
+
 function preload() {
   spritePaths = [
     "/images/hero/Run__001.png",
@@ -48,19 +53,14 @@ function preload() {
     })
   );
 
-  // u-Img = loadImage("/images/avatar.png");
-let virusImg;
-let virusArray = [];
-let papersArray = [];
-let soapsArray = [];
-
-function preload() {
-  avatarImg = loadImage("/images/avatar.png");
   paperImg = loadImage("/images/paper.png");
   backgroundImg = loadImage("/images/background.jpg");
   soapImg = loadImage("/images/soap.png");
   virusImg = loadImage("/images/coronavirus.png");
+
+  // u-Img = loadImage("/images/avatar.png");
 }
+
 function setup() {
   createCanvas(1300, 700);
   person = new Person();
