@@ -17,10 +17,12 @@ class Person {
   moveRight() {
     //create function to move to the right
     this.x += this.vx;
+    hero = runRightImages[frameCount % spritePaths.length];
   }
   moveLeft() {
     //create function to move to the left
     this.x -= this.vx;
+    hero = runLeftImages[frameCount % spritePaths.length];
   }
 
   move() {
@@ -30,7 +32,7 @@ class Person {
   }
 
   show() {
-    image(uImg, this.x, this.y, this.r, this.r);
+    image(hero, this.x, this.y, this.r, this.r);
   }
 
   intersects(other) {
