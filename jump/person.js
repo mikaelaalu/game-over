@@ -66,7 +66,7 @@ class Person {
     playAgain = `
     <div class="play-again-container">
     <div class="play-again">
-    <p>Dieee </p>
+    <p>Dieee</p>
     <button class="play-again-btn"> Play again </button>
     </div>
     <div>`;
@@ -81,7 +81,9 @@ class Person {
     const playContainer = document.querySelector(".play-again-container");
     playContainer.style.display = "none";
     life = 3;
+    points = 0;
 
     displayLife.innerHTML = life;
+    displayPoints.innerHTML = points;
   }
 }
