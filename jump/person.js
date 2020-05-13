@@ -58,16 +58,16 @@ class Person {
     console.log(life);
 
     if (life === 2) {
-      this.die();
+      this.die(points);
     }
   }
 
-  die() {
+  die(points) {
     playAgain = `
     <div class="play-again-container">
     <div class="play-again">
-    <p>Dieee</p>
-    <button class="play-again-btn"> Play again </button>
+    <p>You got ${points} points</p>
+    <button class="play-again-btn">Try again</button>
     </div>
     <div>`;
 

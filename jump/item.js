@@ -28,7 +28,6 @@ class Item {
 
       if (person.intersects(single)) {
         array.splice(i, 1);
-        console.log("points");
         this.points();
       }
     }
