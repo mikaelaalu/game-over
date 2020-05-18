@@ -27,9 +27,27 @@ class Person {
     //create function to move to the right
     this.x += this.vx;
     hero = runRightImages[frameCount % spritePaths.length];
+
+    //Stops the person from moving outside screen
+    if (this.x > 5900) {
+      this.vx = 0;
+    }
+    if (this.x < 20) {
+      this.vx = 10;
+    }
   }
   moveLeft() {
-    //create function to move to the left
+    //Stops the person from moving outside screen
+    if (this.x > 5900) {
+      this.vx = 10;
+    }
+
+    if (this.x < 20) {
+      this.vx = 0;
+    }
+
+    console.log(this.x);
+
     this.x -= this.vx;
     hero = runLeftImages[frameCount % spritePaths.length];
   }
