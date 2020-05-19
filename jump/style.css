@@ -1,6 +1,6 @@
 .play-again-container {
   display: block;
-  position: absolute;
+  position: fixed;
   background-color: coral;
   width: 100vw;
   height: 100vh;
@@ -33,8 +33,8 @@
 }
 
 .info-box {
-  position: absolute;
-  background-color: rgb(110, 150, 223);
+  position: fixed;
+  background-color: rgb(107, 141, 205);
   width: 200px;
   height: 100px;
   display: flex;

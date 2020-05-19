@@ -62,7 +62,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(6000, 700);
+  var cnv = createCanvas(6000, 700);
+
   person = new Person();
   hero = runRightImages[0];
 }
@@ -74,7 +75,7 @@ function keyPressed() {
 }
 
 function draw() {
-  background(backgroundImg);
+  background(113, 214, 230);
   person.show();
   person.move();
   if (random(1) < 0.006) {
