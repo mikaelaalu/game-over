@@ -62,7 +62,7 @@ function preload() {
 }
 
 function setup() {
-  var cnv = createCanvas(1000, 700);
+  var cnv = createCanvas(6000, 700);
 
   person = new Person();
   hero = runRightImages[0];

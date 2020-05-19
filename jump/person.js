@@ -1,9 +1,8 @@
-let life = 3;
 let displayLife = document.querySelector(".life");
+const reset = document.querySelector(".reset");
+let life = 3;
 let playAgain;
 let playBtn;
-
-const reset = document.querySelector(".reset");
 
 class Person {
   constructor() {
@@ -46,8 +45,6 @@ class Person {
       this.vx = 0;
     }
 
-    console.log(this.x);
-
     this.x -= this.vx;
     hero = runLeftImages[frameCount % spritePaths.length];
   }
@@ -75,20 +72,37 @@ class Person {
   looseLife() {
     life = life - 1;
     displayLife.innerHTML = life;
-    console.log(life);
 
     if (life === 0) {
-      this.die(points);
+      this.die(paperPoints, soapPoints);
     }
   }
 
-  die(points) {
+  die(paperPoints, soapPoints) {
     playAgain = `
     <div class="play-again-container">
-    <div class="play-again">
-    <p>You got ${points} points</p>
-    <button class="play-again-btn">Try again</button>
+    <p class="game-over"> Game over </p>
+    <p>Covid19 got you.. But you collected </p>
+    <div class="game-over-wrapper">
+
+    <img src="./images/hero/Dead__009.png" alt="dead-character" class="dead-character"> 
+
+    <div class="points-wrapper">
+
+    <div class="total-points">
+    <p class="points"> ${paperPoints}</p>
+    <img src="./images/paper.png" alt="paper" class="points-img-end paper"> 
     </div>
+
+    <div class="total-points">
+    <p class="points"> ${soapPoints}</p>
+    <img src="./images/soap.png" alt="soap" class="points-img-end">
+    </div>
+</div>
+
+    </div>
+
+    <button class="play-again-btn">Try again</button>
     <div>`;
 
     reset.innerHTML = playAgain;
@@ -101,10 +115,11 @@ class Person {
     const playContainer = document.querySelector(".play-again-container");
     playContainer.style.display = "none";
     life = 3;
-    points = 0;
-
+    soapPoints = 0;
+    paperPoints = 0;
     displayLife.innerHTML = life;
-    displayPointsSoap.innerHTML = points;
-    displayPointsPaper.innerHTML = points;
+
+    displayPointsSoap.innerHTML = soapPoints;
+    displayPointsPaper.innerHTML = paperPoints;
   }
 }
