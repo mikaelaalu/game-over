@@ -42,8 +42,8 @@
   padding: 10px;
 }
 
-.points,
-.life {
+.points-box,
+.life-box {
   display: flex;
   color: white;
   font-size: 14px;

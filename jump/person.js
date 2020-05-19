@@ -104,6 +104,7 @@ class Person {
     points = 0;
 
     displayLife.innerHTML = life;
-    displayPoints.innerHTML = points;
+    displayPointsSoap.innerHTML = points;
+    displayPointsPaper.innerHTML = points;
   }
 }

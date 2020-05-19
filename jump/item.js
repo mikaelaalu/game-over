@@ -1,15 +1,20 @@
 let points = 0;
-let displayPoints = document.querySelector(".points");
+let displayPointsSoap = document.querySelector(".soap");
+let displayPointsPaper = document.querySelector(".paper");
+let paperPoints = 0;
+let soapPoints = 0;
 
 class Item {
-  constructor(image, radius, speed, displayHeight) {
+  constructor(image, radius, speed, displayHeight, type) {
     this.r = radius;
     this.x = width;
     this.y = displayHeight || height - this.r;
     this.image = image;
     this.speed = speed;
+    this.type = type;
 
-    displayPoints.innerHTML = points;
+    displayPointsSoap.innerHTML = soapPoints;
+    displayPointsPaper.innerHTML = paperPoints;
   }
 
   move() {
@@ -28,12 +33,18 @@ class Item {
 
       if (person.intersects(single)) {
         array.splice(i, 1);
-        this.points();
+
+        this.points(single.type);
       }
     }
   }
 
-  points() {
-    displayPoints.innerHTML = points++;
+  points(item) {
+    if (item == "soap") {
+      displayPointsSoap.innerHTML = soapPoints++;
+    }
+    if (item == "paper") {
+      displayPointsPaper.innerHTML = paperPoints++;
+    }
   }
 }
