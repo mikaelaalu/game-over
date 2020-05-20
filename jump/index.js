@@ -16,7 +16,7 @@ let virusArray = [];
 let papersArray = [];
 let soapsArray = [];
 
-let gravity = 1;
+let gravity = 2;
 
 function preload() {
   paperImg = loadImage("/images/paper.png");
@@ -34,9 +34,11 @@ function setup() {
 
   obstacle = createSprite(800, 600, 100, 200);
   obstacle2 = createSprite(600, 650, 300, 100);
+  obstacle3 = createSprite(1000, 650, 100, 100);
 
   obstacles.add(obstacle);
   obstacles.add(obstacle2);
+  obstacles.add(obstacle3);
 }
 
 function draw() {
@@ -45,10 +47,12 @@ function draw() {
   hero.hero.collide(obstacles);
   hero.hero.velocity.y += gravity;
 
-  if (hero.hero.position.y >= window.innerHeight - 68) {
+  if (hero.hero.position.y >= window.innerHeight - 215) {
     hero.hero.velocity.y = 0;
-    hero.hero.position.y = window.innerHeight - 68;
+    hero.hero.position.y = window.innerHeight - 215;
   }
+
+  console.log(hero.hero.position.x);
 
   if (keyIsDown(LEFT_ARROW)) {
     hero.moveLeft();
@@ -58,7 +62,7 @@ function draw() {
   }
   if (keyWentDown(" ")) {
     if (hero.hero.overlap(obstacles)) hero.jump();
-    else if (hero.hero.position.y == window.innerHeight - 68) {
+    else if (hero.hero.position.y == window.innerHeight - 215) {
       hero.jump();
     }
   }
