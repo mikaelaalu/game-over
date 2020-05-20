@@ -4,6 +4,7 @@ class Virus {
     this.x = width;
     this.y = Math.floor(Math.random() * 600) + 1 || height - this.r;
     this.speed = 2;
+    this.sound = new Audio("./sounds/cough.mp3");
   }
 
   move() {
@@ -23,6 +24,7 @@ class Virus {
       if (person.intersects(single)) {
         array.splice(i, 1);
         person.looseLife();
+        this.sound.play();
       }
     }
   }

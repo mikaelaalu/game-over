@@ -62,7 +62,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1300, 700);
+  var cnv = createCanvas(6000, 700);
+
   person = new Person();
   hero = runRightImages[0];
 }
@@ -74,18 +75,18 @@ function keyPressed() {
 }
 
 function draw() {
-  background(backgroundImg);
+  background(113, 214, 230);
   person.show();
   person.move();
   if (random(1) < 0.006) {
     papersArray.push(
-      new Item(paperImg, 50, 3, Math.floor(Math.random() * 600) + 1)
+      new Item(paperImg, 50, 3, Math.floor(Math.random() * 600) + 1, "paper")
     );
   }
 
   if (random(1) < 0.006) {
     soapsArray.push(
-      new Item(soapImg, 50, 3, Math.floor(Math.random() * 600) + 1)
+      new Item(soapImg, 50, 3, Math.floor(Math.random() * 600) + 1, "soap")
     );
   }
   if (random(1) < 0.006) {
