@@ -31,7 +31,7 @@ class Item {
       single.move();
       single.show();
 
-      if (person.intersects(single)) {
+      if (hero.intersects(single)) {
         array.splice(i, 1);
 
         this.points(single.type);

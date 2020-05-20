@@ -4,28 +4,26 @@ let life = 3;
 let playAgain;
 let playBtn;
 
-class Person {
+class Hero {
   constructor() {
+    this.hero = createSprite(200, 100, 100, 100);
     this.r = 100;
     this.x = 50;
     this.vx = 10;
     this.y = height - this.r;
     this.vy = 0; //snabbhet y-axel
-    this.gravity = 1;
 
     displayLife.innerHTML = life;
   }
 
   jump() {
-    if (this.y == height - this.r) {
-      this.vy = -32;
-    }
+    console.log("JUMP");
+    this.hero.velocity.y = -15;
   }
 
   moveRight() {
     //create function to move to the right
-    this.x += this.vx;
-    hero = runRightImages[frameCount % spritePaths.length];
+    this.hero.position.x += 10;
 
     //Stops the person from moving outside screen
     if (this.x > 5900) {
@@ -45,23 +43,16 @@ class Person {
       this.vx = 0;
     }
 
-    this.x -= this.vx;
-    hero = runLeftImages[frameCount % spritePaths.length];
-  }
-
-  move() {
-    this.y += this.vy;
-    this.vy += this.gravity;
-    this.y = constrain(this.y, 0, height - this.r);
-  }
-
-  show() {
-    image(hero, this.x, this.y, this.r, this.r);
+    this.hero.position.x -= 10;
   }
 
   intersects(other) {
-    const distance = dist(this.x, this.y, other.x, other.y);
-
+    const distance = dist(
+      this.hero.position.x,
+      this.hero.position.y,
+      other.x,
+      other.y
+    );
     if (distance + 50 < this.r + other.r) {
       return true;
     } else {

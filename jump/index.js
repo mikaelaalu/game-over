@@ -16,68 +16,53 @@ let virusArray = [];
 let papersArray = [];
 let soapsArray = [];
 
+let gravity = 1;
+
 function preload() {
-  spritePaths = [
-    "/images/hero/Run__001.png",
-    "/images/hero/Run__002.png",
-    "/images/hero/Run__003.png",
-    "/images/hero/Run__004.png",
-    "/images/hero/Run__005.png",
-    "/images/hero/Run__006.png",
-    "/images/hero/Run__007.png",
-    "/images/hero/Run__008.png",
-    "/images/hero/Run__009.png",
-  ];
-
-  spritePathsLeft = [
-    "/images/hero/left-rotated/Run__001.png",
-    "/images/hero/left-rotated/Run__002.png",
-    "/images/hero/left-rotated/Run__003.png",
-    "/images/hero/left-rotated/Run__004.png",
-    "/images/hero/left-rotated/Run__005.png",
-    "/images/hero/left-rotated/Run__006.png",
-    "/images/hero/left-rotated/Run__007.png",
-    "/images/hero/left-rotated/Run__008.png",
-    "/images/hero/left-rotated/Run__009.png",
-  ];
-
-  spritePaths.map((spriteImage) =>
-    loadImage(spriteImage, (image) => {
-      runRightImages.push(image);
-    })
-  );
-
-  spritePathsLeft.map((spriteImage) =>
-    loadImage(spriteImage, (image) => {
-      runLeftImages.push(image);
-    })
-  );
-
   paperImg = loadImage("/images/paper.png");
   backgroundImg = loadImage("/images/background.jpg");
   soapImg = loadImage("/images/soap.png");
   virusImg = loadImage("/images/coronavirus.png");
-
-  // u-Img = loadImage("/images/avatar.png");
 }
 
 function setup() {
-  var cnv = createCanvas(6000, 700);
+  createCanvas(6000, 700);
 
-  person = new Person();
-  hero = runRightImages[0];
-}
+  hero = new Hero();
 
-function keyPressed() {
-  if (key == " ") {
-    person.jump();
-  }
+  obstacles = new Group();
+
+  obstacle = createSprite(800, 600, 100, 200);
+  obstacle2 = createSprite(600, 650, 300, 100);
+
+  obstacles.add(obstacle);
+  obstacles.add(obstacle2);
 }
 
 function draw() {
   background(113, 214, 230);
-  person.show();
-  person.move();
+
+  hero.hero.collide(obstacles);
+  hero.hero.velocity.y += gravity;
+
+  if (hero.hero.position.y >= window.innerHeight - 68) {
+    hero.hero.velocity.y = 0;
+    hero.hero.position.y = window.innerHeight - 68;
+  }
+
+  if (keyIsDown(LEFT_ARROW)) {
+    hero.moveLeft();
+  } else if (keyIsDown(RIGHT_ARROW)) {
+    hero.moveRight();
+    // hero.changeAnimation("runningRight");
+  }
+  if (keyWentDown(" ")) {
+    if (hero.hero.overlap(obstacles)) hero.jump();
+    else if (hero.hero.position.y == window.innerHeight - 68) {
+      hero.jump();
+    }
+  }
+
   if (random(1) < 0.006) {
     papersArray.push(
       new Item(paperImg, 50, 3, Math.floor(Math.random() * 600) + 1, "paper")
@@ -99,10 +84,9 @@ function draw() {
   item.displayRandom(soapsArray);
   item.displayRandom(papersArray);
 
-  if (keyIsDown(LEFT_ARROW)) {
-    person.moveLeft();
-    // uImg = loadImage(runAnimationRight[frameCount % runAnimationRight.length]);
-  } else if (keyIsDown(RIGHT_ARROW)) {
-    person.moveRight();
-  }
+  hero.hero.debug = mouseIsPressed;
+  obstacle.debug = mouseIsPressed;
+  obstacle2.debug = mouseIsPressed;
+
+  drawSprites();
 }
