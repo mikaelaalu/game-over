@@ -19,6 +19,14 @@ let papersArray = [];
 let soapsArray = [];
 
 let gravity = 2;
+const startGameBtn = document.querySelector(".play-btn");
+const playContainer = document.querySelector(".play-game-container");
+const infoBox = document.querySelector(".info-box");
+
+startGameBtn.addEventListener("click", function () {
+  playContainer.classList.add("display-none");
+  infoBox.classList.add(".display-block");
+});
 
 function preload() {
   paperImg = loadImage("/images/paper.png");
@@ -31,7 +39,6 @@ function setup() {
   createCanvas(windowWidth, 700);
 
   hero = new Hero();
-
   monsterVirus = new MonsterVirus();
 
   obstacles = new Group();
@@ -61,13 +68,13 @@ function draw() {
   hero.hero.collide(obstacles);
   hero.hero.velocity.y += gravity;
 
-  if (millis() > 100000) {
+  if (millis() > 1000000) {
     monsterVirus.monsterVirus.attractionPoint(
       0.2,
       hero.hero.position.x,
       hero.hero.position.y
     );
-  } else if (millis() > 200000) {
+  } else if (millis() > 2000000) {
     monsterVirus.monsterVirus.attractionPoint(
       1.0,
       hero.hero.position.x,
