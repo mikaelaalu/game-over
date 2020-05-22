@@ -86,7 +86,7 @@ class Hero {
   moveRight() {
     //create function to move to the right
     this.hero.changeAnimation("runningRight");
-    //Stops the person from moving outside screen
+
     if (this.hero.position.x < windowWidth - 100) {
       this.hero.position.x += 20;
     }
@@ -94,7 +94,7 @@ class Hero {
 
   moveLeft() {
     this.hero.changeAnimation("runningLeft");
-    //Stops the person from moving outside screen
+
     if (this.hero.position.x > 100) {
       this.hero.position.x -= 20;
     }
