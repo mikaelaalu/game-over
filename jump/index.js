@@ -1,3 +1,4 @@
+let grassImg;
 let person;
 let avatarImg;
 let paperImg;
@@ -28,7 +29,10 @@ startGameBtn.addEventListener("click", function () {
   infoBox.classList.add(".display-block");
 });
 
+let ground;
+
 function preload() {
+  grassImg = loadImage("/images/grass.png");
   paperImg = loadImage("/images/paper.png");
   backgroundImg = loadImage("/images/background.jpg");
   soapImg = loadImage("/images/soap.png");
@@ -36,47 +40,79 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, 700);
-
+  createCanvas(windowWidth, windowHeight);
+  ground = windowHeight - 120;
   hero = new Hero();
+
+  frameRate(30);
+
   monsterVirus = new MonsterVirus();
 
   obstacles = new Group();
 
-  obstacle = createSprite(800, 600, 100, 200);
-  obstacle2 = createSprite(600, 650, 300, 100);
-  obstacle3 = createSprite(1000, 650, 100, 100);
-  obstacle4 = createSprite(2000, 650, 300, 300);
-  obstacle5 = createSprite(1800, 650, 150, 100);
-  obstacle6 = createSprite(3500, 650, 200, 150);
-  obstacle7 = createSprite(4000, 650, 150, 200);
-  obstacle8 = createSprite(5100, 650, 150, 100);
+  // obstacle = createSprite(800, 720, 100, 200);
+  obstacle2 = createSprite(600, ground - 80, 300, 300);
 
-  obstacles.add(obstacle);
+  obstacle3 = createSprite(300, ground + 100, 100, 100);
+  obstacle4 = createSprite(900, ground + 100, 100, 100);
+
+  tree = createSprite(1300, ground - 80, 300, 300);
+  grassA = createSprite(0, windowHeight + 50, windowWidth, 50);
+  cloud = createSprite(150, 300, 200, 200);
+  cloud2 = createSprite(1000, 300, 200, 200);
+
+  obstacle2.addAnimation("house", "/images/cabin.png");
+  cloud.addAnimation("cloud", "/images/cloud/cloud1.png");
+
+  cloud2.addAnimation(
+    "cloud",
+
+    "/images/cloud/cloud2.png"
+  );
+
+  tree.addAnimation("tree", "/images/oak.png");
+
+  tree.scale = 0.08;
+  cloud.scale = 0.8;
+  cloud2.scale = 0.5;
+
+  tree.setCollider("rectangle", 0, 0, 5000, 4000);
+
+  cloud.setCollider("rectangle", 0, 50, 300, 50);
+
+  cloud2.setCollider("rectangle", -60, 30, 200, 50);
+
+  obstacle2.scale = 0.3;
+  obstacle2.setCollider("rectangle", -7, 50, 1100, 1200);
+  obstacle3.setCollider("rectangle", 0, 0, 100, 100);
+  obstacle4.setCollider("rectangle", 0, 0, 100, 100);
+
+  // obstacles.add(obstacle);
   obstacles.add(obstacle2);
   obstacles.add(obstacle3);
   obstacles.add(obstacle4);
-  obstacles.add(obstacle5);
-  obstacles.add(obstacle6);
-  obstacles.add(obstacle7);
-  obstacles.add(obstacle8);
+  obstacles.add(tree);
+  obstacles.add(cloud);
+  obstacles.add(cloud2);
+  grassA.addImage(grassImg);
 }
 
 function draw() {
   background(113, 214, 230);
+  // image(grassImg, 0, windowHeight - 50, windowWidth, 50);
 
   hero.hero.collide(obstacles);
   hero.hero.velocity.y += gravity;
 
-  if (millis() > 1000000) {
+  if (millis() > 20000) {
     monsterVirus.monsterVirus.attractionPoint(
-      0.2,
+      0.01,
       hero.hero.position.x,
       hero.hero.position.y
     );
-  } else if (millis() > 2000000) {
+  } else if (millis() > 50000) {
     monsterVirus.monsterVirus.attractionPoint(
-      1.0,
+      0.2,
       hero.hero.position.x,
       hero.hero.position.y
     );
@@ -88,9 +124,9 @@ function draw() {
 
   hero.hero.changeAnimation("idle");
 
-  if (hero.hero.position.y >= window.innerHeight - 215) {
+  if (hero.hero.position.y >= ground) {
     hero.hero.velocity.y = 0;
-    hero.hero.position.y = window.innerHeight - 215;
+    hero.hero.position.y = ground;
   }
 
   if (keyIsDown(LEFT_ARROW)) {
@@ -100,7 +136,7 @@ function draw() {
   }
   if (keyWentDown(" ")) {
     if (hero.hero.overlap(obstacles)) hero.jump();
-    else if (hero.hero.position.y == window.innerHeight - 215) {
+    else if (hero.hero.position.y == ground) {
       hero.jump();
     }
   }
@@ -127,8 +163,11 @@ function draw() {
   item.displayRandom(papersArray);
 
   hero.hero.debug = mouseIsPressed;
-  obstacle.debug = mouseIsPressed;
+  // obstacle.debug = mouseIsPressed;
   obstacle2.debug = mouseIsPressed;
+  tree.debug = mouseIsPressed;
+  cloud.debug = mouseIsPressed;
+  cloud2.debug = mouseIsPressed;
 
   drawSprites();
 }
