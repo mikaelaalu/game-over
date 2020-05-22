@@ -109,29 +109,24 @@ class Hero {
   }
 
   die(paperPoints, soapPoints) {
+    noLoop();
     playAgain = `
     <div class="play-again-container">
     <p class="game-over"> Game over </p>
     <p>Covid19 got you.. But you collected </p>
     <div class="game-over-wrapper">
-
     <img src="./images/hero/Dead__009.png" alt="dead-character" class="dead-character"> 
-
     <div class="points-wrapper">
-
     <div class="total-points">
     <p class="points"> ${paperPoints}</p>
     <img src="./images/paper.png" alt="paper" class="points-img-end paper"> 
     </div>
-
     <div class="total-points">
     <p class="points"> ${soapPoints}</p>
     <img src="./images/soap.png" alt="soap" class="points-img-end">
     </div>
-</div>
-
     </div>
-
+    </div>
     <button class="play-again-btn">Try again</button>
     <div>`;
 
@@ -142,6 +137,7 @@ class Hero {
   }
 
   replay() {
+    loop();
     const playContainer = document.querySelector(".play-again-container");
     playContainer.style.display = "none";
     life = 3;

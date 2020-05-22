@@ -7,7 +7,7 @@ let soapPoints = 0;
 class Item {
   constructor(image, radius, speed, displayHeight, type) {
     this.r = radius;
-    this.x = width;
+    this.x = hero.hero.position.x + 1000;
     this.y = displayHeight || height - this.r;
     this.image = image;
     this.speed = speed;

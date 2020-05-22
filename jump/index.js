@@ -44,6 +44,8 @@ function setup() {
 function draw() {
   background(113, 214, 230);
 
+  // translate(-hero.hero.position.x, 0, hero.hero.position.z);
+
   hero.hero.collide(obstacles);
   hero.hero.velocity.y += gravity;
 
@@ -51,8 +53,6 @@ function draw() {
     hero.hero.velocity.y = 0;
     hero.hero.position.y = window.innerHeight - 215;
   }
-
-  console.log(hero.hero.position.x);
 
   if (keyIsDown(LEFT_ARROW)) {
     hero.moveLeft();
@@ -67,18 +67,18 @@ function draw() {
     }
   }
 
-  if (random(1) < 0.006) {
+  if (random() < 0.02) {
     papersArray.push(
       new Item(paperImg, 50, 3, Math.floor(Math.random() * 600) + 1, "paper")
     );
   }
 
-  if (random(1) < 0.006) {
+  if (random() < 0.02) {
     soapsArray.push(
       new Item(soapImg, 50, 3, Math.floor(Math.random() * 600) + 1, "soap")
     );
   }
-  if (random(1) < 0.006) {
+  if (random() < 0.02) {
     virusArray.push(new Virus());
   }
   const virus = new Virus();

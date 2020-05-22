@@ -1,7 +1,7 @@
 class Virus {
   constructor() {
     this.r = 40;
-    this.x = width;
+    this.x = hero.hero.position.x + 1000;
     this.y = Math.floor(Math.random() * 600) + 1 || height - this.r;
     this.speed = 2;
     this.sound = new Audio("./sounds/cough.mp3");
