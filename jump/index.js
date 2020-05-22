@@ -3,6 +3,8 @@ let avatarImg;
 let paperImg;
 let backgroundImg;
 let soapImg;
+let virus;
+let item;
 
 let papers = [];
 let soaps = [];
@@ -59,13 +61,13 @@ function draw() {
   hero.hero.collide(obstacles);
   hero.hero.velocity.y += gravity;
 
-  if (millis() > 10000) {
+  if (millis() > 100000) {
     monsterVirus.monsterVirus.attractionPoint(
       0.2,
       hero.hero.position.x,
       hero.hero.position.y
     );
-  } else if (millis() > 20000) {
+  } else if (millis() > 200000) {
     monsterVirus.monsterVirus.attractionPoint(
       1.0,
       hero.hero.position.x,
@@ -110,10 +112,10 @@ function draw() {
   if (random(1) < 0.006) {
     virusArray.push(new Virus());
   }
-  const virus = new Virus();
+  virus = new Virus();
   virus.displayRandom(virusArray);
 
-  const item = new Item();
+  item = new Item();
   item.displayRandom(soapsArray);
   item.displayRandom(papersArray);
 

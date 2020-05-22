@@ -119,6 +119,7 @@ class Hero {
     displayLife.innerHTML = life;
 
     if (life === 0) {
+      virus.sound.play();
       this.die(paperPoints, soapPoints);
     }
   }
@@ -154,9 +155,13 @@ class Hero {
     playBtn = document.querySelector(".play-again-btn");
 
     playBtn.addEventListener("click", this.replay);
+    noloop();
   }
 
   replay() {
+    setup();
+    loop();
+
     const playContainer = document.querySelector(".play-again-container");
     playContainer.style.display = "none";
     life = 3;
