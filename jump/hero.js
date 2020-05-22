@@ -119,6 +119,7 @@ class Hero {
     displayLife.innerHTML = life;
 
     if (life === 0) {
+      virus.sound.play();
       this.die(paperPoints, soapPoints);
     }
   }
@@ -129,34 +130,32 @@ class Hero {
     <p class="game-over"> Game over </p>
     <p>Covid19 got you.. But you collected </p>
     <div class="game-over-wrapper">
-
     <img src="./images/hero/Dead__009.png" alt="dead-character" class="dead-character"> 
-
     <div class="points-wrapper">
-
     <div class="total-points">
     <p class="points"> ${paperPoints}</p>
     <img src="./images/paper.png" alt="paper" class="points-img-end paper"> 
     </div>
-
     <div class="total-points">
     <p class="points"> ${soapPoints}</p>
     <img src="./images/soap.png" alt="soap" class="points-img-end">
     </div>
-</div>
-
     </div>
-
-    <button class="play-again-btn">Try again</button>
+    </div>
+    <button class="play-again-btn play-btn">Try again</button>
     <div>`;
 
     reset.innerHTML = playAgain;
     playBtn = document.querySelector(".play-again-btn");
 
     playBtn.addEventListener("click", this.replay);
+    noloop();
   }
 
   replay() {
+    setup();
+    loop();
+
     const playContainer = document.querySelector(".play-again-container");
     playContainer.style.display = "none";
     life = 3;

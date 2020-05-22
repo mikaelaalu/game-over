@@ -4,6 +4,8 @@ let avatarImg;
 let paperImg;
 let backgroundImg;
 let soapImg;
+let virus;
+let item;
 
 let papers = [];
 let soaps = [];
@@ -18,6 +20,14 @@ let papersArray = [];
 let soapsArray = [];
 
 let gravity = 2;
+const startGameBtn = document.querySelector(".play-btn");
+const playContainer = document.querySelector(".play-game-container");
+const infoBox = document.querySelector(".info-box");
+
+startGameBtn.addEventListener("click", function () {
+  playContainer.classList.add("display-none");
+  infoBox.classList.add(".display-block");
+});
 
 let ground;
 
@@ -145,10 +155,10 @@ function draw() {
   if (random(1) < 0.006) {
     virusArray.push(new Virus());
   }
-  const virus = new Virus();
+  virus = new Virus();
   virus.displayRandom(virusArray);
 
-  const item = new Item();
+  item = new Item();
   item.displayRandom(soapsArray);
   item.displayRandom(papersArray);
 
