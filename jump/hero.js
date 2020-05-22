@@ -86,7 +86,7 @@ class Hero {
   moveRight() {
     //create function to move to the right
     this.hero.changeAnimation("runningRight");
-    //Stops the person from moving outside screen
+
     if (this.hero.position.x < windowWidth - 100) {
       this.hero.position.x += 20;
     }
@@ -94,7 +94,7 @@ class Hero {
 
   moveLeft() {
     this.hero.changeAnimation("runningLeft");
-    //Stops the person from moving outside screen
+
     if (this.hero.position.x > 100) {
       this.hero.position.x -= 20;
     }
@@ -125,7 +125,7 @@ class Hero {
   }
 
   die(paperPoints, soapPoints) {
-    backgroundMusic.pause();
+    // backgroundMusic.pause();
     playAgain = `
     <div class="play-again-container">
     <p class="game-over"> Game over </p>
@@ -156,7 +156,7 @@ class Hero {
   replay() {
     setup();
     loop();
-    backgroundMusic.play();
+    // backgroundMusic.play();
     const playContainer = document.querySelector(".play-again-container");
     playContainer.style.display = "none";
     life = 3;
