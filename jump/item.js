@@ -12,6 +12,7 @@ class Item {
     this.image = image;
     this.speed = speed;
     this.type = type;
+    this.sound = new Audio("./sounds/happy.mp3");
 
     displayPointsSoap.innerHTML = soapPoints;
     displayPointsPaper.innerHTML = paperPoints;
@@ -40,6 +41,8 @@ class Item {
   }
 
   points(item) {
+    this.sound.play();
+
     if (item == "soap") {
       displayPointsSoap.innerHTML = soapPoints++;
     }

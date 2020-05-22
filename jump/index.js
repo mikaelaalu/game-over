@@ -27,6 +27,7 @@ const infoBox = document.querySelector(".info-box");
 
 startGameBtn.addEventListener("click", function () {
   backgroundMusic.play();
+  backgroundMusic.volume = 0.1;
   playContainer.classList.add("display-none");
   infoBox.classList.add(".display-block");
 });
