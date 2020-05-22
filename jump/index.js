@@ -19,15 +19,15 @@ let papersArray = [];
 let soapsArray = [];
 
 let gravity = 2;
-let backgroundMusic = new Audio("./sounds/smile.mp3");
+// let backgroundMusic = new Audio("./sounds/smile.mp3");
 
 const startGameBtn = document.querySelector(".play-btn");
 const playContainer = document.querySelector(".play-game-container");
 const infoBox = document.querySelector(".info-box");
 
 startGameBtn.addEventListener("click", function () {
-  backgroundMusic.play();
-  backgroundMusic.volume = 0.1;
+  // backgroundMusic.play();
+  // backgroundMusic.volume = 0.1;
   playContainer.classList.add("display-none");
   infoBox.classList.add(".display-block");
 });
