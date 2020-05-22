@@ -3,6 +3,8 @@ let avatarImg;
 let paperImg;
 let backgroundImg;
 let soapImg;
+let virus;
+let item;
 
 let papers = [];
 let soaps = [];
@@ -17,6 +19,14 @@ let papersArray = [];
 let soapsArray = [];
 
 let gravity = 2;
+const startGameBtn = document.querySelector(".play-btn");
+const playContainer = document.querySelector(".play-game-container");
+const infoBox = document.querySelector(".info-box");
+
+startGameBtn.addEventListener("click", function () {
+  playContainer.classList.add("display-none");
+  infoBox.classList.add(".display-block");
+});
 
 function preload() {
   paperImg = loadImage("/images/paper.png");
@@ -29,7 +39,6 @@ function setup() {
   createCanvas(windowWidth, 700);
 
   hero = new Hero();
-
   monsterVirus = new MonsterVirus();
 
   obstacles = new Group();
@@ -59,13 +68,13 @@ function draw() {
   hero.hero.collide(obstacles);
   hero.hero.velocity.y += gravity;
 
-  if (millis() > 10000) {
+  if (millis() > 1000000) {
     monsterVirus.monsterVirus.attractionPoint(
       0.2,
       hero.hero.position.x,
       hero.hero.position.y
     );
-  } else if (millis() > 20000) {
+  } else if (millis() > 2000000) {
     monsterVirus.monsterVirus.attractionPoint(
       1.0,
       hero.hero.position.x,
@@ -110,10 +119,10 @@ function draw() {
   if (random(1) < 0.006) {
     virusArray.push(new Virus());
   }
-  const virus = new Virus();
+  virus = new Virus();
   virus.displayRandom(virusArray);
 
-  const item = new Item();
+  item = new Item();
   item.displayRandom(soapsArray);
   item.displayRandom(papersArray);
 
