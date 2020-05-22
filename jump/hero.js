@@ -19,6 +19,20 @@ class Hero {
 
     this.hero.addAnimation("standing", "/images/hero/Run__000.png");
 
+    this.hero.addAnimation(
+      "idle",
+      "/images/hero/idle__000.png",
+      "/images/hero/idle__001.png",
+      "/images/hero/idle__002.png",
+      "/images/hero/idle__003.png",
+      "/images/hero/idle__004.png",
+      "/images/hero/idle__005.png",
+      "/images/hero/idle__006.png",
+      "/images/hero/idle__007.png",
+      "/images/hero/idle__008.png",
+      "/images/hero/idle__009.png"
+    );
+
     this.hero.scale = 0.5;
 
     this.hero.addAnimation(
@@ -48,6 +62,20 @@ class Hero {
       "/images/hero/left-rotated/Run__008.png",
       "/images/hero/left-rotated/Run__009.png"
     );
+
+    this.hero.addAnimation(
+      "jumpRight",
+      "/images/hero/Jump__000.png",
+      "/images/hero/Jump__001.png",
+      "/images/hero/Jump__002.png",
+      "/images/hero/Jump__003.png",
+      "/images/hero/Jump__004.png",
+      "/images/hero/Jump__005.png",
+      "/images/hero/Jump__006.png",
+      "/images/hero/Jump__007.png",
+      "/images/hero/Jump__008.png",
+      "/images/hero/Jump__009.png"
+    );
   }
 
   jump() {
@@ -55,24 +83,11 @@ class Hero {
     this.hero.velocity.y = -20;
   }
 
-  // moveRight() {
-  //   //create function to move to the right
-  //   this.hero.position.x += 20;
-  //   this.hero.changeAnimation("runningRight");
-  //   //Stops the person from moving outside screen
-  //   if (this.hero.position.x > 5900) {
-  //     this.hero.position.x += 0;
-  //   }
-  //   if (this.hero.position.x < 20) {
-  //     this.hero.position.x += 0;
-  //   }
-  // }
-
   moveRight() {
     //create function to move to the right
     this.hero.changeAnimation("runningRight");
     //Stops the person from moving outside screen
-    if (this.hero.position.x < 5900) {
+    if (this.hero.position.x < windowWidth - 100) {
       this.hero.position.x += 20;
     }
   }

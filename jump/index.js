@@ -26,19 +26,31 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(6000, 700);
+  createCanvas(windowWidth, 700);
 
   hero = new Hero();
+
+  monsterVirus = new MonsterVirus();
 
   obstacles = new Group();
 
   obstacle = createSprite(800, 600, 100, 200);
   obstacle2 = createSprite(600, 650, 300, 100);
   obstacle3 = createSprite(1000, 650, 100, 100);
+  obstacle4 = createSprite(2000, 650, 300, 300);
+  obstacle5 = createSprite(1800, 650, 150, 100);
+  obstacle6 = createSprite(3500, 650, 200, 150);
+  obstacle7 = createSprite(4000, 650, 150, 200);
+  obstacle8 = createSprite(5100, 650, 150, 100);
 
   obstacles.add(obstacle);
   obstacles.add(obstacle2);
   obstacles.add(obstacle3);
+  obstacles.add(obstacle4);
+  obstacles.add(obstacle5);
+  obstacles.add(obstacle6);
+  obstacles.add(obstacle7);
+  obstacles.add(obstacle8);
 }
 
 function draw() {
@@ -47,18 +59,35 @@ function draw() {
   hero.hero.collide(obstacles);
   hero.hero.velocity.y += gravity;
 
+  if (millis() > 10000) {
+    monsterVirus.monsterVirus.attractionPoint(
+      0.2,
+      hero.hero.position.x,
+      hero.hero.position.y
+    );
+  } else if (millis() > 20000) {
+    monsterVirus.monsterVirus.attractionPoint(
+      1.0,
+      hero.hero.position.x,
+      hero.hero.position.y
+    );
+  }
+
+  if (hero.hero.overlap(monsterVirus.monsterVirus)) {
+    hero.looseLife();
+  }
+
+  hero.hero.changeAnimation("idle");
+
   if (hero.hero.position.y >= window.innerHeight - 215) {
     hero.hero.velocity.y = 0;
     hero.hero.position.y = window.innerHeight - 215;
   }
 
-  console.log(hero.hero.position.x);
-
   if (keyIsDown(LEFT_ARROW)) {
     hero.moveLeft();
   } else if (keyIsDown(RIGHT_ARROW)) {
     hero.moveRight();
-    // hero.changeAnimation("runningRight");
   }
   if (keyWentDown(" ")) {
     if (hero.hero.overlap(obstacles)) hero.jump();
