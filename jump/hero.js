@@ -125,6 +125,7 @@ class Hero {
   }
 
   die(paperPoints, soapPoints) {
+    backgroundMusic.pause();
     playAgain = `
     <div class="play-again-container">
     <p class="game-over"> Game over </p>
@@ -155,7 +156,7 @@ class Hero {
   replay() {
     setup();
     loop();
-
+    backgroundMusic.play();
     const playContainer = document.querySelector(".play-again-container");
     playContainer.style.display = "none";
     life = 3;
