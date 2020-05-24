@@ -58,11 +58,7 @@ function setup() {
   obstacle2.addAnimation("house", "/images/cabin.png");
   cloud.addAnimation("cloud", "/images/cloud/cloud1.png");
 
-  cloud2.addAnimation(
-    "cloud",
-
-    "/images/cloud/cloud2.png"
-  );
+  cloud2.addAnimation("cloud", "/images/cloud/cloud2.png");
 
   tree.addAnimation("tree", "/images/oak.png");
 
