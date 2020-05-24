@@ -79,14 +79,11 @@ class Hero {
   }
 
   jump() {
-    console.log("JUMP");
     this.hero.velocity.y = -20;
   }
 
   moveRight() {
-    //create function to move to the right
     this.hero.changeAnimation("runningRight");
-
     if (this.hero.position.x < windowWidth - 100) {
       this.hero.position.x += 20;
     }
@@ -94,7 +91,6 @@ class Hero {
 
   moveLeft() {
     this.hero.changeAnimation("runningLeft");
-
     if (this.hero.position.x > 100) {
       this.hero.position.x -= 20;
     }
@@ -107,7 +103,7 @@ class Hero {
       other.x,
       other.y
     );
-    if (distance + 50 < this.r + other.r) {
+    if (distance + 30 < this.r + other.r) {
       return true;
     } else {
       return false;
@@ -117,19 +113,18 @@ class Hero {
   looseLife() {
     life = life - 1;
     displayLife.innerHTML = life;
-
     if (life === 0) {
       virus.sound.play();
       this.die(paperPoints, soapPoints);
+      noLoop();
     }
   }
 
   die(paperPoints, soapPoints) {
-    // backgroundMusic.pause();
     playAgain = `
     <div class="play-again-container">
     <p class="game-over"> Game over </p>
-    <p>Covid19 got you.. But you collected </p>
+    <p>Covid-19 got you.. But you collected </p>
     <div class="game-over-wrapper">
     <img src="./images/hero/Dead__009.png" alt="dead-character" class="dead-character"> 
     <div class="points-wrapper">
@@ -150,13 +145,11 @@ class Hero {
     playBtn = document.querySelector(".play-again-btn");
 
     playBtn.addEventListener("click", this.replay);
-    noloop();
   }
 
   replay() {
     setup();
     loop();
-    // backgroundMusic.play();
     const playContainer = document.querySelector(".play-again-container");
     playContainer.style.display = "none";
     life = 3;

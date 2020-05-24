@@ -6,34 +6,27 @@ let backgroundImg;
 let soapImg;
 let virus;
 let item;
-
 let papers = [];
 let soaps = [];
 let runRightImages = [];
 let runLeftImages = [];
-
 let spritePaths = [];
-
 let virusImg;
 let virusArray = [];
 let papersArray = [];
 let soapsArray = [];
-
 let gravity = 2;
-// let backgroundMusic = new Audio("./sounds/smile.mp3");
+let ground;
 
 const startGameBtn = document.querySelector(".play-btn");
 const playContainer = document.querySelector(".play-game-container");
 const infoBox = document.querySelector(".info-box");
 
 startGameBtn.addEventListener("click", function () {
-  // backgroundMusic.play();
-  // backgroundMusic.volume = 0.1;
   playContainer.classList.add("display-none");
   infoBox.classList.add(".display-block");
+  loop();
 });
-
-let ground;
 
 function preload() {
   grassImg = loadImage("/images/grass.png");
@@ -44,6 +37,7 @@ function preload() {
 }
 
 function setup() {
+  noLoop();
   createCanvas(windowWidth, windowHeight);
   ground = windowHeight - 120;
   hero = new Hero();
@@ -51,15 +45,11 @@ function setup() {
   frameRate(30);
 
   monsterVirus = new MonsterVirus();
-
   obstacles = new Group();
 
-  // obstacle = createSprite(800, 720, 100, 200);
   obstacle2 = createSprite(600, ground - 80, 300, 300);
-
   obstacle3 = createSprite(300, ground + 100, 100, 100);
   obstacle4 = createSprite(900, ground + 100, 100, 100);
-
   tree = createSprite(1300, ground - 80, 300, 300);
   grassA = createSprite(0, windowHeight + 50, windowWidth, 50);
   cloud = createSprite(150, 300, 200, 200);
@@ -68,11 +58,7 @@ function setup() {
   obstacle2.addAnimation("house", "/images/cabin.png");
   cloud.addAnimation("cloud", "/images/cloud/cloud1.png");
 
-  cloud2.addAnimation(
-    "cloud",
-
-    "/images/cloud/cloud2.png"
-  );
+  cloud2.addAnimation("cloud", "/images/cloud/cloud2.png");
 
   tree.addAnimation("tree", "/images/oak.png");
 
@@ -91,7 +77,6 @@ function setup() {
   obstacle3.setCollider("rectangle", 0, 0, 100, 100);
   obstacle4.setCollider("rectangle", 0, 0, 100, 100);
 
-  // obstacles.add(obstacle);
   obstacles.add(obstacle2);
   obstacles.add(obstacle3);
   obstacles.add(obstacle4);
@@ -103,26 +88,14 @@ function setup() {
 
 function draw() {
   background(113, 214, 230);
-  // image(grassImg, 0, windowHeight - 50, windowWidth, 50);
 
   hero.hero.collide(obstacles);
   hero.hero.velocity.y += gravity;
 
-  if (millis() > 20000) {
-    monsterVirus.monsterVirus.attractionPoint(
-      0.01,
-      hero.hero.position.x,
-      hero.hero.position.y
-    );
-  } else if (millis() > 50000) {
-    monsterVirus.monsterVirus.attractionPoint(
-      0.2,
-      hero.hero.position.x,
-      hero.hero.position.y
-    );
-  }
+  monsterVirus.showMonsterVirus();
 
   if (hero.hero.overlap(monsterVirus.monsterVirus)) {
+    monsterVirus.monsterVirus.remove();
     hero.looseLife();
   }
 
@@ -138,6 +111,7 @@ function draw() {
   } else if (keyIsDown(RIGHT_ARROW)) {
     hero.moveRight();
   }
+
   if (keyWentDown(" ")) {
     if (hero.hero.overlap(obstacles)) hero.jump();
     else if (hero.hero.position.y == ground) {
@@ -167,7 +141,6 @@ function draw() {
   item.displayRandom(papersArray);
 
   hero.hero.debug = mouseIsPressed;
-  // obstacle.debug = mouseIsPressed;
   obstacle2.debug = mouseIsPressed;
   tree.debug = mouseIsPressed;
   cloud.debug = mouseIsPressed;
