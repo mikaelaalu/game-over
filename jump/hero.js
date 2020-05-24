@@ -1,7 +1,7 @@
 let displayLife = document.querySelector(".life");
 const reset = document.querySelector(".reset");
 const enterName = document.querySelector(".enter-name");
-let life = 1;
+let life = 3;
 let playAgain;
 let enterNameForm;
 let playBtn;
@@ -18,7 +18,7 @@ class Hero {
     this.x = 50;
     this.vx = 10;
     this.y = height - this.r;
-    this.vy = 0; //snabbhet y-axel
+    this.vy = 0;
 
     displayLife.innerHTML = life;
 
