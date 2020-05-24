@@ -1,8 +1,13 @@
 let displayLife = document.querySelector(".life");
 const reset = document.querySelector(".reset");
-let life = 3;
+const enterName = document.querySelector(".enter-name");
+let life = 1;
 let playAgain;
+let enterNameForm;
 let playBtn;
+let scoreButton;
+let playerNameField;
+let playerName;
 
 class Hero {
   constructor() {
@@ -84,6 +89,7 @@ class Hero {
 
   moveRight() {
     this.hero.changeAnimation("runningRight");
+    //Stops the person from moving outside screen
     if (this.hero.position.x < windowWidth - 100) {
       this.hero.position.x += 20;
     }
@@ -91,6 +97,7 @@ class Hero {
 
   moveLeft() {
     this.hero.changeAnimation("runningLeft");
+    //Stops the person from moving outside screen
     if (this.hero.position.x > 100) {
       this.hero.position.x -= 20;
     }
@@ -139,10 +146,35 @@ class Hero {
     </div>
     </div>
     <button class="play-again-btn play-btn">Try again</button>
-    <div>`;
+    <div class="dead-footer">
+    Fill out your name below, champion, and maybe you'll be apart of the <a class="score-link" href="/highscore.html"> SCOREBOARD </a>
+     <form class="score-form">
+    <input class="highscore-name" type="text" name="name">
+    <button type="submit" class="score-btn">
+    Submit
+    </button>
+    </form>
+    </div>
+    `;
+
+    let totalScore = paperPoints + soapPoints;
 
     reset.innerHTML = playAgain;
+
     playBtn = document.querySelector(".play-again-btn");
+
+    scoreButton = document.querySelector(".score-btn");
+    playerNameField = document.querySelector(".highscore-name");
+
+    scoreButton.addEventListener("click", function addScoreToDatabase() {
+      playerName = playerNameField.value;
+      let ref = database.ref("scores");
+      let data = {
+        Name: playerName,
+        Score: totalScore,
+      };
+      ref.push(data);
+    });
 
     playBtn.addEventListener("click", this.replay);
   }

@@ -76,3 +76,44 @@
   font-size: 14px;
   justify-content: space-evenly;
 }
+
+.start-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.dead-footer {
+  margin-top: 20px;
+}
+
+.score-form {
+  margin-top: 10px;
+}
+
+.highscore-name {
+  width: 300px;
+}
+
+.score-btn {
+  height: 30px;
+  font-size: 15px;
+  border: none;
+  box-shadow: 6px 4px 11px -4px rgba(0, 0, 0, 0.75);
+  background-color: #d91515;
+  color: white;
+  border-radius: 3px;
+}
+
+.score-btn:hover {
+  background-color: white;
+  color: #d91515;
+}
+.score-link {
+  text-decoration: none;
+  color: black;
+}
+
+.score-link:hover {
+  color: yellow;
+}
