@@ -103,7 +103,7 @@ class Hero {
       other.x,
       other.y
     );
-    if (distance + 50 < this.r + other.r) {
+    if (distance + 30 < this.r + other.r) {
       return true;
     } else {
       return false;

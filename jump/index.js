@@ -99,6 +99,7 @@ function draw() {
   monsterVirus.showMonsterVirus();
 
   if (hero.hero.overlap(monsterVirus.monsterVirus)) {
+    monsterVirus.monsterVirus.remove();
     hero.looseLife();
   }
 
