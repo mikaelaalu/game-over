@@ -1,0 +1,24 @@
+body {
+  background-color: yellow;
+}
+
+.board-main {
+  font-family: "DM Mono", monospace;
+  padding: 100px 200px 100px 200px;
+}
+
+.back-to-game-btn {
+  width: 200px;
+  height: 100px;
+  font-size: 30px;
+  border: none;
+  box-shadow: 6px 4px 11px -4px rgba(0, 0, 0, 0.75);
+  background-color: #d91515;
+  color: white;
+  border-radius: 3px;
+  margin-top: 100px;
+}
+.back-to-game-btn:hover {
+  background-color: white;
+  color: #d91515;
+}

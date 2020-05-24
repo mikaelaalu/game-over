@@ -57,16 +57,20 @@ function setup() {
   // obstacle = createSprite(800, 720, 100, 200);
   obstacle2 = createSprite(600, ground - 80, 300, 300);
 
-  obstacle3 = createSprite(300, ground + 100, 100, 100);
-  obstacle4 = createSprite(900, ground + 100, 100, 100);
+  stump = createSprite(950, ground + 100, 100, 100);
+  bush = createSprite(200, ground + 150, 100, 100);
 
   tree = createSprite(1300, ground - 80, 300, 300);
+
   grassA = createSprite(0, windowHeight + 50, windowWidth, 50);
   cloud = createSprite(150, 300, 200, 200);
   cloud2 = createSprite(1000, 300, 200, 200);
 
   obstacle2.addAnimation("house", "/images/cabin.png");
   cloud.addAnimation("cloud", "/images/cloud/cloud1.png");
+  stump.addAnimation("stump", "/images/stump.png");
+
+  bush.addAnimation("bush", "/images/bush.png");
 
   cloud2.addAnimation(
     "cloud",
@@ -79,6 +83,8 @@ function setup() {
   tree.scale = 0.08;
   cloud.scale = 0.8;
   cloud2.scale = 0.5;
+  stump.scale = 0.03;
+  bush.scale = 0.5;
 
   tree.setCollider("rectangle", 0, 0, 5000, 4000);
 
@@ -88,13 +94,13 @@ function setup() {
 
   obstacle2.scale = 0.3;
   obstacle2.setCollider("rectangle", -7, 50, 1100, 1200);
-  obstacle3.setCollider("rectangle", 0, 0, 100, 100);
-  obstacle4.setCollider("rectangle", 0, 0, 100, 100);
+  stump.setCollider("rectangle", 0, 0, 3500, 3000);
+  bush.setCollider("rectangle", 0, 0, 100, 100);
 
   // obstacles.add(obstacle);
   obstacles.add(obstacle2);
-  obstacles.add(obstacle3);
-  obstacles.add(obstacle4);
+  obstacles.add(stump);
+  obstacles.add(bush);
   obstacles.add(tree);
   obstacles.add(cloud);
   obstacles.add(cloud2);
@@ -166,12 +172,14 @@ function draw() {
   item.displayRandom(soapsArray);
   item.displayRandom(papersArray);
 
-  hero.hero.debug = mouseIsPressed;
-  // obstacle.debug = mouseIsPressed;
-  obstacle2.debug = mouseIsPressed;
-  tree.debug = mouseIsPressed;
-  cloud.debug = mouseIsPressed;
-  cloud2.debug = mouseIsPressed;
+  // hero.hero.debug = mouseIsPressed;
+  // // obstacle.debug = mouseIsPressed;
+  // obstacle2.debug = mouseIsPressed;
+  // tree.debug = mouseIsPressed;
+  // cloud.debug = mouseIsPressed;
+  // cloud2.debug = mouseIsPressed;
+  // stump.debug = mouseIsPressed;
+  // bush.debug = mouseIsPressed;
 
   drawSprites();
 }

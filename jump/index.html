@@ -12,26 +12,31 @@
     <title>Jump!!!</title>
   </head>
   <body>
+    <div class="play-game-container">
+      <div class="h2-wrapper">
+        <img src="/images/coronavirus.png" class="virus-start" alt="virus" />
+        <h2 class="h2-covid">COVIDeo Game</h2>
+        <img src="/images/coronavirus.png" class="virus-start" alt="virus" />
+      </div>
+      <img src="/images/hero/Idle__000.png" class="hero-start" alt="hero" />
 
-<div class="play-game-container">
-  <div class="h2-wrapper">
-    <img src="/images/coronavirus.png" class="virus-start" alt="virus">
-<h2 class="h2-covid">  COVIDeo Game  </h2>
-<img src="/images/coronavirus.png" class="virus-start" alt="virus">
-</div>
-<img src="/images/hero/Idle__000.png" class="hero-start" alt="hero">
+      <p class="instructions">
+        Covid-19 is taking over the world and you need to stay alive!! Collect
+        as many toilet paper rolls and soaps as possible. If you get hit by
+        covid-19 three times, you die.. But watch out for the huge coronavirus..
+        it will kill you right away.
+      </p>
 
-<p class="instructions"> Covid-19 is taking over the world and you need to stay alive!! 
-  Collect as many toilet paper and soap as possible. 
-If you get hit by covid-19 three times, you die..
-But watch out for the huge coronavirus.. it will kill you right away.
-</p>
+      <p>Use space to jump and right and left arrow to move.</p>
 
-<p>Use space to jump and right arrow and left arrow to move.</p>
+      <div class="start-buttons">
+        <button class="play-btn">Play</button>
 
-<button class="play-btn">Play</button>
+        <a href="/highscore.html">
+          <button class="play-btn">Scoreboard</button>
+        </a>
+      </div>
     </div>
-
 
     <div class="info-box">
       <div class="points-box">
@@ -49,6 +54,13 @@ But watch out for the huge coronavirus.. it will kill you right away.
 
     <div class="reset"></div>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    ;
+
+    <script src="highscore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
     <script src="index.js"></script>
     <script src="hero.js"></script>
