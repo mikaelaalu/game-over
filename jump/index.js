@@ -98,7 +98,15 @@ function draw() {
   background(113, 214, 230);
 
   hero.hero.collide(obstacles);
+
+  // fixes bug that made the velocity piush the player down
+  if (hero.hero.velocity.y > 50) {
+    hero.hero.velocity.y = 0;
+  }
+
   hero.hero.velocity.y += gravity;
+
+  hero.hero.velocity.x = 0;
 
   monsterVirus.showMonsterVirus();
 
@@ -126,6 +134,14 @@ function draw() {
       hero.jump();
     }
   }
+
+  console.log(hero.hero.velocity.y);
+
+  // if (keyWentDown(" ")) {
+  //   if (hero.hero.velocity.y === 0 || hero.hero.velocity.y === 2) {
+  //     hero.jump();
+  //   }
+  // }
 
   if (random(1) < 0.006) {
     papersArray.push(
