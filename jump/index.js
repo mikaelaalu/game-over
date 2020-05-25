@@ -98,7 +98,15 @@ function draw() {
   background(113, 214, 230);
 
   hero.hero.collide(obstacles);
+
+  // fixes bug that made the velocity push the player down
+  if (hero.hero.velocity.y > 50) {
+    hero.hero.velocity.y = 0;
+  }
+
   hero.hero.velocity.y += gravity;
+
+  hero.hero.velocity.x = 0;
 
   monsterVirus.showMonsterVirus();
 
