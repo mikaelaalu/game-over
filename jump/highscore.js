@@ -41,11 +41,14 @@ function gotData(data) {
     return parseFloat(b.Score) - parseFloat(a.Score);
   });
 
-  for (i = 0; i < 9; i++) {
+  for (i = 0; i < 10; i++) {
     let listItem = document.createElement("li");
     listItem.innerText =
-      sortedHighScore[i].Name + ": " + sortedHighScore[i].Score;
-    scoreList.appendChild(listItem);
+      sortedHighScore[i].Name + ": " + sortedHighScore[i].Score + "points";
+
+    if (scoreList) {
+      scoreList.appendChild(listItem);
+    }
   }
 }
 

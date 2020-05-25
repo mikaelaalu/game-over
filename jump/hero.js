@@ -1,7 +1,7 @@
 let displayLife = document.querySelector(".life");
 const reset = document.querySelector(".reset");
 const enterName = document.querySelector(".enter-name");
-let life = 1;
+let life = 3;
 let playAgain;
 let enterNameForm;
 let playBtn;
@@ -15,10 +15,6 @@ class Hero {
 
     this.hero.setCollider("rectangle", 0, 0, 200, 475);
     this.r = 100;
-    this.x = 50;
-    this.vx = 10;
-    this.y = height - this.r;
-    this.vy = 0; //snabbhet y-axel
 
     displayLife.innerHTML = life;
 
@@ -147,8 +143,8 @@ class Hero {
     </div>
     <button class="play-again-btn play-btn">Try again</button>
     <div class="dead-footer">
-    Fill out your name below, champion, and maybe you'll be apart of the <a class="score-link" href="/highscore.html"> SCOREBOARD </a>
-     <form class="score-form">
+    Fill out your name below, champion, and maybe you'll be a part of the <a class="score-link" href="/highscore.html"> SCOREBOARD </a>
+     <form action="/highscore.html" method="none" class="score-form" >
     <input class="highscore-name" type="text" name="name">
     <button type="submit" class="score-btn">
     Submit
