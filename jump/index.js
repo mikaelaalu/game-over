@@ -99,7 +99,7 @@ function draw() {
 
   hero.hero.collide(obstacles);
 
-  // fixes bug that made the velocity piush the player down
+  // fixes bug that made the velocity push the player down
   if (hero.hero.velocity.y > 50) {
     hero.hero.velocity.y = 0;
   }
@@ -134,14 +134,6 @@ function draw() {
       hero.jump();
     }
   }
-
-  console.log(hero.hero.velocity.y);
-
-  // if (keyWentDown(" ")) {
-  //   if (hero.hero.velocity.y === 0 || hero.hero.velocity.y === 2) {
-  //     hero.jump();
-  //   }
-  // }
 
   if (random(1) < 0.006) {
     papersArray.push(
