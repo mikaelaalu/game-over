@@ -148,9 +148,9 @@ function draw() {
   item.displayRandom(soapsArray);
   item.displayRandom(papersArray);
 
-  // hero.hero.debug = mouseIsPressed;
-  // // obstacle.debug = mouseIsPressed;
+  //Uncomment below for debug
   // obstacle2.debug = mouseIsPressed;
+  // hero.hero.debug = mouseIsPressed;
   // tree.debug = mouseIsPressed;
   // cloud.debug = mouseIsPressed;
   // cloud2.debug = mouseIsPressed;
