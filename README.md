@@ -24,5 +24,25 @@ Play this amaizing game here https://covideo-game.netlify.app/
 
 
 ## Code review 
+By <a href="https://github.com/henricbjork">Henric Björkvall</a> and <a href="https://github.com/Juljulia"> Julia Karlsson </a>
 
-## Testers
+
+# Tested by
+
+#### Programmers 
+
+- <a href="https://github.com/oaflindberg">Andreas Lindberg</a>
+- <a href="https://github.com/lundborgm">Michaela Lundborg</a>
+- <a href="https://github.com/ThomasSonnerstam">Thomas Sönnerstam</a>
+- <a href="https://github.com/ViktorSjoblom">Viktor Sjöblom</a>
+
+#### No programmers
+
+- Teresia Lundsgård
+- Linda Olsson
+- Elin Söndergaard
+
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE  <a href="https://github.com/mikaelaalu/game-over/blob/master/LICENSE"> file </a>  for details
