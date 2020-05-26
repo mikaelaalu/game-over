@@ -19,7 +19,6 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 function addScoreToDatabase(name, score) {
-  console.log("name: " + name + " score:" + score);
   let ref = database.ref("scores");
   let data = {
     Name: name,

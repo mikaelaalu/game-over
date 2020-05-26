@@ -106,6 +106,8 @@ function draw() {
 
   hero.hero.velocity.y += gravity;
 
+  console.log(hero.hero.position.x);
+
   hero.hero.velocity.x = 0;
 
   monsterVirus.showMonsterVirus();

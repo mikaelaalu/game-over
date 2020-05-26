@@ -1,10 +1,12 @@
-# game-over
+# Game over
+
+<img src="https://media.giphy.com/media/Up2HaOJxXMu3cfM9bS/giphy.gif" width="100%">
 
 School assignment at yrgo 2020, a game in javascript build with p5.js and firebase
 
 # COVIDeo game
 
-Play this amaizing game here https://covideo-game.netlify.app/
+Play this amazing game here https://covideo-game.netlify.app/
 
 ## Authors
 
