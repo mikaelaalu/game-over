@@ -28,6 +28,24 @@ Play this amaizing game here https://covideo-game.netlify.app/
 
 By <a href="https://github.com/henricbjork">Henric Björkvall</a> and <a href="https://github.com/Juljulia"> Julia Karlsson </a>
 
+- [style.css](https://github.com/mikaelaalu/game-over/blob/006b78528b649318cfc69aa5a12afbbd0330e8c0/jump/style.css)
+  You could reset the margins and paddings in your css so that the canvas fills the entire screen.
+- [style.css](https://github.com/mikaelaalu/game-over/blob/006b78528b649318cfc69aa5a12afbbd0330e8c0/jump/style.css)
+  You could try adding overflow: hidden to the body so that the page won’t scroll up/down and to the sides whenever the arrow keys are pressed.
+- [index.js](https://github.com/mikaelaalu/game-over/blob/006b78528b649318cfc69aa5a12afbbd0330e8c0/jump/index.js#L159)
+  You have a commented out block for debugging. This could be removed for the final and pushed up product.
+- You have images in the images folder that are unused that you can remove for the final product
+- [hero.js](https://github.com/mikaelaalu/game-over/blob/006b78528b649318cfc69aa5a12afbbd0330e8c0/jump/hero.js#L178) 
+  In your replay function in hero.js, you don’t reset the item arrays or declare a new hero. I think that could be the reason why the old hero and items still remains sometimes after pressing the replay button.
+- [hero.js](https://github.com/mikaelaalu/game-over/blob/master/jump/hero.js#L16-L105)
+  I think that you don't have to repeat hero in this.hero.setCollider, so instead declare this.setCollider and this.addAnimation. Not completely sure about the syntax in classes, but maybe it's a good improvement to delete 'hero' when not needed. 
+- [index.js](https://github.com/mikaelaalu/game-over/blob/master/jump/index.js#L100-L134)
+  If followed the tip above then you could delete the repeating hero.hero and just type hero.collide(obstacles) for example. 
+- Good practice that you have structured up your code into several files. 
+- Maybe store all css files in one directory. 
+- It's a funny game and we like your covid-19 theme. Good job! 
+
+
 # Tested by
 
 #### Programmers
