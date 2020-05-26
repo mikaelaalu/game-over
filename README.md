@@ -46,7 +46,7 @@ By <a href="https://github.com/henricbjork">Henric Björkvall</a> and <a href="h
 - It's a funny game and we like your covid-19 theme. Good job! 
 
 
-# Tested by
+## Tested by
 
 #### Programmers
 
